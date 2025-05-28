@@ -52,7 +52,8 @@ class MaterialTableDemo extends React.Component {
 
   //! add Task
   addTask = ({ description, completed }) => {
-    const { token } = this.state;
+    const token = window.localStorage.getItem("token"); // <-- Toujours lire le token à jour
+    console.log("Token utilisé pour créer la tâche :", token);
     axios
       .post(
         "/tasks",
